@@ -1,3 +1,5 @@
+import itertools
+
 nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # the same obj
@@ -50,3 +52,12 @@ print(", ".join(map(str, nums2)))
 # immutable list => tuple
 my_tuple = tuple(nums)
 my_tuple1 = (9, 8, 7, 6, 5)
+
+# accumulate - сумма всех предыдущих значений (полезно будет при префиксах)
+for i in itertools.accumulate(nums[::-1]):
+    print(i)
+
+# product - декартово произведение
+bits = list(itertools.product(["00", "01", "10", "11"], ["00", "01", "10", "11"]))
+for i, val in enumerate(bits):
+    print(f"{i} - {val[0]}{val[1]}")
